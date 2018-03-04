@@ -9,7 +9,6 @@
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/bouncycastle/bcprov-jdk15on/1.59/bcprov-jdk15on-1.59.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/javax/json/javax.json-api/1.1.2/javax.json-api-1.1.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/glassfish/javax.json/1.1/javax.json-1.1.jar" path-in-jar="/" />
-      <element id="dir-copy" path="$PROJECT_DIR$/../META-INF" />
     </root>
   </artifact>
 </component>

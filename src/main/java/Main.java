@@ -36,7 +36,6 @@ public class Main {
                 .map(Main::getRidOfApostropheOnStartAndEnd)
                 .collect(toList());
 
-
         getVariablesFromProgramArgs(args);
 
         if(isProgramArgsValid) {
@@ -54,11 +53,11 @@ public class Main {
                                                  (() -> System.err.println("Empty file!")));
                             } catch (IOException e) {
                                 System.out.println(fullPath.toString());
-                                System.err.println("wrong path");
+                                System.err.println("Wrong path");
                             }
                         });
             } catch (IOException e) {
-                System.err.println("IOException");
+                System.err.println("Wrong path");
             }
         }
 
@@ -79,15 +78,16 @@ public class Main {
 
 
     private static void getVariablesFromProgramArgs(List<String> args) {
-        // date is splitted into two parts cause of space <'2017-12-11> <00:00:00> that's why there is one more arg'
-        if(args.size() == numberOfProgramArgs + 1) {
+
+        if(args.size() == numberOfProgramArgs) {
             inputDir = args.get(0);
-            date = getDateFromString(args.get(1)+" "+args.get(2));
-            cdrType = args.get(3);
-            msisdnRegex = getPatternFromString(args.get(4), "msisdn");
-            imsiRegex = getPatternFromString(args.get(5), "imsi");
+            date = getDateFromString(args.get(1));
+            cdrType = args.get(2);
+            msisdnRegex = getPatternFromString(args.get(3), "msisdn");
+            imsiRegex = getPatternFromString(args.get(4), "imsi");
         }else{
-            System.err.println("Number of args are not valid");
+            System.err.println("Number of args are not valid should be "
+                    + numberOfProgramArgs + " but is " + args.size());
             isProgramArgsValid = false;
         }
     }

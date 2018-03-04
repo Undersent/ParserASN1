@@ -24,11 +24,33 @@
                 <!--<configuration>-->
                     <!--<archive>-->
                         <!--<manifest>-->
-                            <!--<mainClass>src.main.java.Main</mainClass>-->
+                            <!--<mainClass>Main</mainClass>-->
                         <!--</manifest>-->
                     <!--</archive>-->
                 <!--</configuration>-->
             <!--</plugin>-->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <mainClass>Main</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
@@ -49,11 +71,6 @@
             <groupId>org.glassfish</groupId>
             <artifactId>javax.json</artifactId>
             <version>1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.0.1</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
